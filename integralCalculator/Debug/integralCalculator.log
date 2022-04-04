@@ -1,0 +1,6 @@
+﻿  functions.cpp
+  main.cpp
+  Создание кода...
+A:\projects\cpp\integralCalculator\integralCalculator\functions.cpp(162): warning C4715: calcFunc: значение возвращается не при всех путях выполнения
+A:\projects\cpp\integralCalculator\integralCalculator\functions.cpp(272): warning C4715: Function::calcIntegral: значение возвращается не при всех путях выполнения
+  integralCalculator.vcxproj -> A:\projects\cpp\integralCalculator\Debug\integralCalculator.exe
