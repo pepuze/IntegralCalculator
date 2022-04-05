@@ -1,0 +1,9 @@
+﻿  functions.cpp
+  main.cpp
+  Создание кода
+  Previous IPDB not found, fall back to full compilation.
+A:\projects\cpp\integralCalculator\integralCalculator\functions.cpp(162): warning C4715: calcFunc: значение возвращается не при всех путях выполнения
+A:\projects\cpp\integralCalculator\integralCalculator\functions.cpp(272): warning C4715: Function::calcIntegral: значение возвращается не при всех путях выполнения
+  All 353 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Создание кода завершено
+  integralCalculator.vcxproj -> A:\projects\cpp\integralCalculator\Release\integralCalculator.exe
