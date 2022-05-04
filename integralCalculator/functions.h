@@ -23,16 +23,17 @@ enum class TokenType {
 	Operator,
 	Operand,
 	Function,
-	Parenthesis
+	Parenthesis,
+	Unknown
 };
 
 //Functions for infix-to-postfix conversion
 bool isDigitOrDecimal(const char);							 //Returns true if a char is a digit or a decimal point, otherwise false 
 bool isLetter(const char);									 //Returns true if a char is a letter (in lower register), otherwise false
-bool isRightAssociative(const std::string);					 //Returns true if an operator is right associative, otherwise false
-bool checkFuncSyntax(std::string);							 //Checks if syntax of infix function is correct (is not implemented yet)
-int getOperandPriority(const std::string);				     //Returns int that represents operand priority
-TokenType getTokenType(const std::string);					 // Returns type of a token
+bool isRightAssociative(const std::string&);					 //Returns true if an operator is right associative, otherwise false
+bool checkFuncSyntax(const std::string&);							 //Checks if syntax of infix function is correct (is not implemented yet)
+int getOperandPriority(const std::string&);				     //Returns int that represents operand priority
+TokenType getTokenType(const std::string&);					 // Returns type of a token
 
 
 
@@ -47,7 +48,7 @@ public:
 	Token(std::string val) : type{ getTokenType(val) }, value{ val }, priority{ getOperandPriority(val) }, rightAssociative{ isRightAssociative(val) } {}
 };
 
-std::queue<Token> funcToPostfix(std::string); //Converts infix function(std::string) into postfix function(queue of tokens(std::queue))
+std::queue<Token> funcToPostfix(const std::string&); //Converts infix function(std::string) into postfix function(queue of tokens(std::queue))
 
 /*
 	~PARSER

@@ -1,6 +1,109 @@
 ﻿  functions.cpp
   main.cpp
+A:\projects\cpp\integralCalculator\integralCalculator\main.cpp(65,54): warning C4244: аргумент: преобразование "double" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+A:\projects\cpp\integralCalculator\integralCalculator\main.cpp(65,39): warning C4244: аргумент: преобразование "double" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+A:\projects\cpp\integralCalculator\integralCalculator\main.cpp(74,90): warning C4244: аргумент: преобразование "double" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+A:\projects\cpp\integralCalculator\integralCalculator\main.cpp(75,100): warning C4244: аргумент: преобразование "double" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+A:\projects\cpp\integralCalculator\integralCalculator\main.cpp(75,90): warning C4244: аргумент: преобразование "double" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+A:\projects\cpp\integralCalculator\integralCalculator\main.cpp(77,100): warning C4244: аргумент: преобразование "double" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+A:\projects\cpp\integralCalculator\integralCalculator\main.cpp(77,90): warning C4244: аргумент: преобразование "double" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+A:\projects\cpp\integralCalculator\integralCalculator\main.cpp(78,90): warning C4244: аргумент: преобразование "double" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+A:\projects\cpp\integralCalculator\integralCalculator\main.cpp(85,92): warning C4244: аргумент: преобразование "double" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+A:\projects\cpp\integralCalculator\integralCalculator\main.cpp(86,102): warning C4244: аргумент: преобразование "double" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+A:\projects\cpp\integralCalculator\integralCalculator\main.cpp(86,92): warning C4244: аргумент: преобразование "double" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+A:\projects\cpp\integralCalculator\integralCalculator\main.cpp(89,102): warning C4244: аргумент: преобразование "double" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+A:\projects\cpp\integralCalculator\integralCalculator\main.cpp(89,92): warning C4244: аргумент: преобразование "double" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+A:\projects\cpp\integralCalculator\integralCalculator\main.cpp(90,92): warning C4244: аргумент: преобразование "double" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+A:\projects\cpp\integralCalculator\integralCalculator\main.cpp(103,87): warning C4244: аргумент: преобразование "double" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+A:\projects\cpp\integralCalculator\integralCalculator\main.cpp(105,98): warning C4244: аргумент: преобразование "double" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+A:\projects\cpp\integralCalculator\integralCalculator\main.cpp(105,88): warning C4244: аргумент: преобразование "double" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+A:\projects\cpp\integralCalculator\integralCalculator\main.cpp(109,88): warning C4244: аргумент: преобразование "double" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+A:\projects\cpp\integralCalculator\integralCalculator\main.cpp(117,13): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+A:\projects\cpp\integralCalculator\integralCalculator\main.cpp(132,17): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+A:\projects\cpp\integralCalculator\integralCalculator\main.cpp(139,17): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+A:\projects\cpp\integralCalculator\integralCalculator\main.cpp(178,24): warning C4244: *=: преобразование "double" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+A:\projects\cpp\integralCalculator\integralCalculator\main.cpp(179,24): warning C4244: *=: преобразование "double" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
   Создание кода...
-A:\projects\cpp\integralCalculator\integralCalculator\functions.cpp(162): warning C4715: calcFunc: значение возвращается не при всех путях выполнения
-A:\projects\cpp\integralCalculator\integralCalculator\functions.cpp(272): warning C4715: Function::calcIntegral: значение возвращается не при всех путях выполнения
-  integralCalculator.vcxproj -> A:\projects\cpp\integralCalculator\Debug\integralCalculator.exe
+A:\projects\cpp\integralCalculator\integralCalculator\functions.cpp(284): warning C4715: calcFunc: значение возвращается не при всех путях выполнения
+A:\projects\cpp\integralCalculator\integralCalculator\functions.cpp(395): warning C4715: Function::calcIntegral: значение возвращается не при всех путях выполнения
+LINK : fatal error LNK1104: не удается открыть файл "sfml-graphics-s-d.lib"

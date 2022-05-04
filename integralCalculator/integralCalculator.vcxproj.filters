@@ -19,7 +19,7 @@
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="functions.cpp">
-      <Filter>Файлы ресурсов</Filter>
+      <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
