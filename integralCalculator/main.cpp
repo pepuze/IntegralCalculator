@@ -76,11 +76,19 @@ int main() {
 		std::cout << "Rectangle method: " << std::fixed << function.calcIntegral(leftBound, rightBound, QuadFormula::RectangleMethod, nSegments) << std::endl;
 		std::cout << "Trapezoid method: " << std::fixed << function.calcIntegral(leftBound, rightBound, QuadFormula::TrapezoidMethod, nSegments) << std::endl;
 		std::cout << "Simpson method: "   << std::fixed << function.calcIntegral(leftBound, rightBound, QuadFormula::SimpsonMethod, nSegments)   << std::endl << std::endl;
+		std::cout << "0 - turn function graph  (black) on/off\n";
+		std::cout << "1 - turn rectangle graph (red)   on/off\n";
+		std::cout << "2 - turn trapezoid graph (green) on/off\n";
+		std::cout << "3 - turn simpson graph   (blue)  on/off\n";
+		std::cout << "I - zoom in\n";
+		std::cout << "O - zoom out\n";
+		std::cout << "Use left mouse button to move view\n";
+		std::cout << "Close graph window to continue...\n\n";
 		
 		sf::ContextSettings settings;
 		settings.antialiasingLevel = 8;
 		sf::RenderWindow window(sf::VideoMode(1024, 768), "Graph", sf::Style::Default, settings);
-		sf::View view(sf::Vector2f(0, 0), sf::Vector2f(0, 0));
+		sf::View view(sf::Vector2f(leftBound+rightBound/2, function.calc(leftBound + rightBound / 2)), sf::Vector2f(0, 0));
 		view.setSize(1024, 768);
 
 		const unsigned int nPoints = int(floor((rightBound - leftBound) / dx));
