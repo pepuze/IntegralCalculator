@@ -12,29 +12,70 @@ const double dx = 0.001;
 int main() {
 
 	while (1) {
-		std::string func;
-		std::cout << "Input function:\n";
+		std::string func, leftBoundStr, rightBoundStr, nSegmentsStr;
+		std::cout << "Input function y(x):\n";
 		std::getline(std::cin, func);
 
-		for (char& c : func) c = tolower(c);
+		for (char& ch : func) ch = tolower(ch);
 		if (!checkFuncSyntax(func)) {
 			continue;
 		}
 
 		Function function(func);
-		function.printPostfix();
-		double a, b;
+		double leftBound, rightBound;
 		unsigned int nSegments = 20;
-		std::cout << "Integral from a to b\na = ";
-		std::cin >> a;
+		std::cout << "Input integration limits [a,b]\na = ";
+		std::cin >> leftBoundStr;
+
+		try {
+			leftBound = std::stod(leftBoundStr);
+		}
+		catch (...) {
+			std::cout << "Invalid input\n\n";
+			std::cin.ignore();
+			continue;
+		}
+
 		std::cout << "b = ";
-		std::cin >> b;
+		std::cin >> rightBoundStr;
+
+		try {
+			rightBound = std::stod(rightBoundStr);
+			if (rightBound < leftBound) throw(1);
+		}
+		catch (const int num) {
+			std::cout << "Invalid bounds: a cannot be greater than b\n\n";
+			std::cin.ignore();
+			continue;
+		}
+		catch (...) {
+			std::cout << "Invalid input\n\n";
+			std::cin.ignore();
+			continue;
+		}
+
 		std::cout << "Number of segments: ";
-		std::cin >> nSegments;
+		std::cin >> nSegmentsStr;
+
+		try {
+			nSegments = std::stoul(nSegmentsStr);
+			if (nSegments < 1) throw(1);
+		}
+		catch (const int num) {
+			std::cout << "Number of segments cannot be 0 or less\n\n";
+			std::cin.ignore();
+			continue;
+		}
+		catch (...) {
+			std::cout << "Invalid input\n\n";
+			std::cin.ignore();
+			continue;
+		}
+
 		std::cout << "Integrals:\n";
-		std::cout << "Rectangle method: " << std::fixed << function.calcIntegral(a, b, QuadFormula::RectangleMethod, nSegments) << std::endl;
-		std::cout << "Trapezoid method: " << std::fixed << function.calcIntegral(a, b, QuadFormula::TrapezoidMethod, nSegments) << std::endl;
-		std::cout << "Simpson method: "   << std::fixed << function.calcIntegral(a, b, QuadFormula::SimpsonMethod, nSegments) << std::endl << std::endl;
+		std::cout << "Rectangle method: " << std::fixed << function.calcIntegral(leftBound, rightBound, QuadFormula::RectangleMethod, nSegments) << std::endl;
+		std::cout << "Trapezoid method: " << std::fixed << function.calcIntegral(leftBound, rightBound, QuadFormula::TrapezoidMethod, nSegments) << std::endl;
+		std::cout << "Simpson method: "   << std::fixed << function.calcIntegral(leftBound, rightBound, QuadFormula::SimpsonMethod, nSegments)   << std::endl << std::endl;
 		
 		sf::ContextSettings settings;
 		settings.antialiasingLevel = 8;
@@ -42,7 +83,7 @@ int main() {
 		sf::View view(sf::Vector2f(0, 0), sf::Vector2f(0, 0));
 		view.setSize(1024, 768);
 
-		const unsigned int nPoints = int(floor((b - a) / dx));
+		const unsigned int nPoints = int(floor((rightBound - leftBound) / dx));
 		const unsigned int nPointsMethods = nSegments * 4;
 
 		sf::VertexArray graph(sf::LinesStrip, nPoints);					     bool toggleGraph	  = 1;
@@ -62,13 +103,13 @@ int main() {
 		
 		//True graph
 		for (unsigned int i = 0; i < nPoints; ++i) {
-			graph[i].position = sf::Vector2f(a + i * dx, -1.0 * function.calc(a + i * dx));
+			graph[i].position = sf::Vector2f(leftBound + i * dx, -1.0 * function.calc(leftBound + i * dx));
 			graph[i].color = sf::Color::Black;
 		}
 		
 		//Rectangle graph
-		const double step = (b - a) / nSegments;
-		double currentX = a;
+		const double step = (rightBound - leftBound) / nSegments;
+		double currentX = leftBound;
 		for (unsigned int i = 0, j = 0; i < nSegments; ++i) {
 			double yVal = function.calc(currentX + step/2);
 			graphRectangle[j].color = sf::Color::Red; graphRectangle[j++].position = sf::Vector2f(currentX, 0.f);
@@ -79,7 +120,7 @@ int main() {
 		}
 
 		//Trapezoid graph
-		currentX = a;
+		currentX = leftBound;
 		for (unsigned int i = 0, j = 0; i < nSegments; ++i) {
 			double yVal = function.calc(currentX);
 			graphTrapezoid[j].color = sf::Color::Green; graphTrapezoid[j++].position = sf::Vector2f(currentX, 0.f);
@@ -92,9 +133,9 @@ int main() {
 		
 		//Simpson graph
 		const double h = step / 2;
-		currentX = a;
+		currentX = leftBound;
 		for (unsigned int i = 0, j = 0; i < nSegments; ++i) {
-			currentX = a + step * i;
+			currentX = leftBound + step * i;
 			const double x2i = currentX + step;
 			const double ai = (function.calc(currentX + step) - function.calc(currentX)) / (step * (step - h)) - (function.calc(currentX + h) - function.calc(currentX)) / (h * (step - h)),
 				bi = (function.calc(currentX + h) - function.calc(currentX)) / h - ai * (currentX * 2 + h),
@@ -106,8 +147,7 @@ int main() {
 				currentX += dx;
 			}
 			if (i + 1 >= nSegments) {
-				graphSimpson[j].color = sf::Color::Blue; graphSimpson[j++].position = sf::Vector2f(currentX, 0);
-				while (j < nPoints + nSegments * 2) graphSimpson[j++].color = sf::Color(0, 0, 0, 0);
+				while (j < nPoints + nSegments * 2 + 1) graphSimpson[j].position = sf::Vector2f(currentX, 0), graphSimpson[j++].color = sf::Color::Blue;
 			}
 		}
 		
