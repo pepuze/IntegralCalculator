@@ -1,6 +1,3 @@
-#include <stack>
-#include <queue>
-#include <cmath>
 #include <iostream>
 #include <string>
 #include <stdio.h>
@@ -11,7 +8,7 @@ const double dx = 0.001;
 
 int main() {
 
-	while (1) {
+	while (1) {	
 		std::string func, leftBoundStr, rightBoundStr, nSegmentsStr;
 		std::cout << "Input function y(x):\n";
 		std::getline(std::cin, func);
@@ -88,7 +85,7 @@ int main() {
 		sf::ContextSettings settings;
 		settings.antialiasingLevel = 8;
 		sf::RenderWindow window(sf::VideoMode(1024, 768), "Graph", sf::Style::Default, settings);
-		sf::View view(sf::Vector2f(leftBound+rightBound/2, function.calc(leftBound + rightBound / 2)), sf::Vector2f(0, 0));
+		sf::View view(sf::Vector2f(leftBound+rightBound/2, -1.0f*function.calc(leftBound + rightBound / 2)), sf::Vector2f(0, 0));
 		view.setSize(1024, 768);
 
 		const unsigned int nPoints = int(floor((rightBound - leftBound) / dx));

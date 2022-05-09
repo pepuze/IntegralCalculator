@@ -1,6 +1,6 @@
+#include <string>
 #include <stack>
 #include <queue>
-#include <string>
 #include <cmath>
 #include <iostream>
 #include "functions.h"
