@@ -1,4 +1,8 @@
-﻿  main.cpp
+﻿cl : командная строка warning D9002: пропуск неизвестного параметра "/NODEFAULTLIB:sfml-graphics-s.lib"
+cl : командная строка warning D9002: пропуск неизвестного параметра "/NODEFAULTLIB:sfml-system-s.lib"
+cl : командная строка warning D9002: пропуск неизвестного параметра "/NODEFAULTLIB:sfml-window-s.lib"
+  functions.cpp
+  main.cpp
 A:\projects\cpp\integralCalculator\integralCalculator\main.cpp(88,59): warning C4244: аргумент: преобразование "double" в "T", возможна потеря данных
           with
           [
@@ -115,8 +119,8 @@ A:\projects\cpp\integralCalculator\integralCalculator\main.cpp(224,24): warning 
 A:\projects\cpp\integralCalculator\integralCalculator\main.cpp(43,20): warning C4101: num: неиспользованная локальная переменная
 A:\projects\cpp\integralCalculator\integralCalculator\main.cpp(61,20): warning C4101: num: неиспользованная локальная переменная
   Создание кода
-  1 of 419 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
+  0 of 419 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    3 functions had inline decision re-evaluated but remain unchanged
+    0 functions had inline decision re-evaluated but remain unchanged
   Создание кода завершено
   integralCalculator.vcxproj -> A:\projects\cpp\integralCalculator\Release\integralCalculator.exe
